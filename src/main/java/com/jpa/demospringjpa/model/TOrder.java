@@ -24,6 +24,7 @@ public class TOrder {
 	private Double amount;
 	
 	@Column(name = "order_date")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date orderDate;
 	
 	@Column(name = "order_num")
