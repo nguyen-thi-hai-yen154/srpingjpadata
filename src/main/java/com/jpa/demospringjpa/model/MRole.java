@@ -42,12 +42,12 @@ public class MRole {
 
 
 
-		public Mrole() {
+		public MRole() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
 
-		public Mrole(Long roleId, String roleCode, String roleName, String modifiedBy, Date modifiedDate,
+		public MRole(Long roleId, String roleCode, String roleName, String modifiedBy, Date modifiedDate,
 				String createdBy, Date createdDate) {
 			super();
 			this.roleId = roleId;
