@@ -13,7 +13,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "m_role")
-public class Mrole {
+public class MRole {
 
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,8 +40,8 @@ public class Mrole {
 		@Temporal(TemporalType.TIMESTAMP)
 		private Date createdDate;
 
-		
-		
+
+
 		public Mrole() {
 			super();
 			// TODO Auto-generated constructor stub
@@ -114,6 +114,6 @@ public class Mrole {
 		public void setCreatedDate(Date createdDate) {
 			this.createdDate = createdDate;
 		}
-	
-	
+
+
 }
