@@ -8,6 +8,8 @@ public class DemospringjpaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemospringjpaApplication.class, args);
+		
+		
 	}
 
 }
