@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "t_user")
@@ -15,13 +17,13 @@ public class TUser {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
-	private long userID;
+	private Long userID;
 	
 	@Column(name = "user_name")
 	private String userName;
 	
 	@Column(name = "active")
-	private boolean userActive;
+	private Boolean userActive;
 	
 	@Column(name = "encryted_password")
 	private String encrytedPassword;
@@ -30,7 +32,7 @@ public class TUser {
 	private String userEmail;
 	
 	@Column(name = "role_id")
-	private String roleID;
+	private Long roleID;
 	
 	@Column(name = "brithday")
 	private Date userBirthday;
@@ -57,12 +59,14 @@ public class TUser {
 	private String userModifiedBy;
 	
 	@Column(name = "modified_date")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date userModifiedDate;
 	
 	@Column(name = "created_by")
 	private String userCreated_by;
 	
 	@Column(name = "created_date")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date userCreatedDate;
 
 	public TUser() {
@@ -70,11 +74,11 @@ public class TUser {
 		// TODO Auto-generated constructor stub
 	}
 
-	public long getUserID() {
+	public Long getUserID() {
 		return userID;
 	}
 
-	public void setUserID(long userID) {
+	public void setUserID(Long userID) {
 		this.userID = userID;
 	}
 
@@ -86,11 +90,11 @@ public class TUser {
 		this.userName = userName;
 	}
 
-	public boolean isUserActive() {
+	public Boolean getUserActive() {
 		return userActive;
 	}
 
-	public void setUserActive(boolean userActive) {
+	public void setUserActive(Boolean userActive) {
 		this.userActive = userActive;
 	}
 
@@ -110,11 +114,11 @@ public class TUser {
 		this.userEmail = userEmail;
 	}
 
-	public String getRoleID() {
+	public Long getRoleID() {
 		return roleID;
 	}
 
-	public void setRoleID(String roleID) {
+	public void setRoleID(Long roleID) {
 		this.roleID = roleID;
 	}
 
@@ -205,5 +209,7 @@ public class TUser {
 	public void setUserCreatedDate(Date userCreatedDate) {
 		this.userCreatedDate = userCreatedDate;
 	}
+
+	
 
 }
