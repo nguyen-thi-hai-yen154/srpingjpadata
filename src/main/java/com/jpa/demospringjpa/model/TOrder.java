@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -33,7 +35,7 @@ public class TOrder {
 	@Column(name = "order_num")
 	private Integer orderNum;
 	
-	@Column(name = "user_id")
+	@Column(name = "user_id", nullable = false)
 	private Long userId;
 	
 	@Column(name = "status")
@@ -62,6 +64,10 @@ public class TOrder {
 		// TODO Auto-generated constructor stub
 	}
 
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "user_id", referencedColumnName = "user_id", insertable = false, updatable = false)
+	private TUser user;
+	
 
 	public Long getOrderId() {
 		return orderId;
