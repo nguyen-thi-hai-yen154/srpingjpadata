@@ -1,24 +1,28 @@
 package com.jpa.demospringjpa.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "m_category")
 public class MCategory {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "category_id")
 	private Long categoryId;
-	
+
 	@Column(name = "category_name")
 	private String categoryName;
-	
+
 	@Column(name = "description")
 	private String description;
 
@@ -26,6 +30,11 @@ public class MCategory {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	@OneToMany(
+	        mappedBy = "category"
+	)
+	private List<Product> products = new ArrayList<>();
 
 	public Long getCategoryId() {
 		return categoryId;
@@ -50,6 +59,6 @@ public class MCategory {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
+
+
 }

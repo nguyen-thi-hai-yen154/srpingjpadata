@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.Table;
 
@@ -33,6 +35,10 @@ public class Product {
 		super();
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
+
+	@ManyToOne
+	@JoinColumn(name = "category_id", referencedColumnName = "category_id")
+	private MCategory category;
 
 	public Product(Long id, String name, String brand, String madein, float price) {
 		super();
