@@ -17,6 +17,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "t_user")
 public class TUser {
@@ -40,6 +42,7 @@ public class TUser {
 	@Column(name = "role_id")
 	private Long roleID;
 
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "brithday")
 	private Date userBirthday;
 
