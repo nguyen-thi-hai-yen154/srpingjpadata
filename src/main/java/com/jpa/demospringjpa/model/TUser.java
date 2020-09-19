@@ -1,12 +1,17 @@
 package com.jpa.demospringjpa.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -18,53 +23,53 @@ public class TUser {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private Long userID;
-	
+
 	@Column(name = "user_name")
 	private String userName;
-	
+
 	@Column(name = "active")
 	private Boolean userActive;
-	
+
 	@Column(name = "encryted_password")
 	private String encrytedPassword;
-	
+
 	@Column(name = "email")
 	private String userEmail;
-	
+
 	@Column(name = "role_id")
 	private Long roleID;
-	
+
 	@Column(name = "brithday")
 	private Date userBirthday;
-	
+
 	@Column(name = "gender")
 	private String usergender;
-	
+
 	@Column(name = "full_name")
 	private String userFullName;
-	
+
 	@Column(name = "address")
 	private String userAddress;
-	
+
 	@Column(name = "phone")
 	private String userPhone;
-	
+
 	@Column(name = "city")
 	private String userCity;
-	
+
 	@Column(name = "country")
 	private String userCountry;
-	
+
 	@Column(name = "modified_by")
 	private String userModifiedBy;
-	
+
 	@Column(name = "modified_date")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date userModifiedDate;
-	
+
 	@Column(name = "created_by")
 	private String userCreated_by;
-	
+
 	@Column(name = "created_date")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date userCreatedDate;
@@ -73,6 +78,14 @@ public class TUser {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	@ManyToMany
+	@JoinTable(name = "user_role",
+	joinColumns = @JoinColumn(name = "user_id"),
+	inverseJoinColumns = @JoinColumn(name = "role_id")
+)
+	private List<MRole> roles = new ArrayList<>();
+
 
 	public Long getUserID() {
 		return userID;
@@ -210,6 +223,6 @@ public class TUser {
 		this.userCreatedDate = userCreatedDate;
 	}
 
-	
+
 
 }

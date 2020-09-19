@@ -1,12 +1,17 @@
 package com.jpa.demospringjpa.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -40,8 +45,6 @@ public class MRole {
 		@Temporal(TemporalType.TIMESTAMP)
 		private Date createdDate;
 
-
-
 		public MRole() {
 			super();
 			// TODO Auto-generated constructor stub
@@ -58,6 +61,9 @@ public class MRole {
 			this.createdBy = createdBy;
 			this.createdDate = createdDate;
 		}
+
+		@ManyToMany(mappedBy = "roles")
+	    private List<TUser> users = new ArrayList<>();
 
 		public Long getRoleId() {
 			return roleId;
