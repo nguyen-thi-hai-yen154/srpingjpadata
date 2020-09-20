@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.jpa.demospringjpa.model.Product;
+import com.jpa.demospringjpa.model.ProductForm;
 import com.jpa.demospringjpa.service.ProductService;
 
 
@@ -30,6 +31,10 @@ public class AppController {
 	public String viewHomePage(Model model) {
 		List<Product> listProducts = service.listAll();
 		model.addAttribute("listProducts", listProducts);
+
+
+		product = new Product();
+		model.addAttribute("productform", product);
 
 		return "index";
 	}
@@ -63,4 +68,16 @@ public class AppController {
 		service.delete(id);
 		return "redirect:/";
 	}
+
+	@RequestMapping("/search")
+	public ModelAndView searchProductPage(@ModelAttribute(name = "productform") Product productForm) {
+		ModelAndView mav = new ModelAndView("index");
+
+		List<Product> listProducts = service.search(productForm.getName());
+		mav.addObject("listProducts", listProducts);
+
+		return mav;
+	}
+
+
 }
