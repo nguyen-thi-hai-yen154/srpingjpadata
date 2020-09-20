@@ -9,6 +9,10 @@
 </head>
 <body>
 <div align="center">
+    <nav>
+    	<a href="/springjpa/">Product List</a>
+    	<a href="/springjpa/tuser">User List</a>/
+    </nav>
     <h1>Category List</h1>
      <a href="/springjpa/add_newcategory">Create New Category</a>
     <br/></br>
@@ -30,7 +34,7 @@
                     &nbsp;&nbsp;&nbsp;
                     <a th:href="@{'/deleteCategory/' + ${mCategory.categoryId}}">Delete</a>
                 </td>
-    
+
     </tbody>
     </table>
     </div>
