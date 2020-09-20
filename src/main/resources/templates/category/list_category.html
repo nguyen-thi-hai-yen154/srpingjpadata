@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>List Category</title>
+
+</head>
+<body>
+<div align="center">
+    <h1>Category List</h1>
+     <a href="/springjpa/add_newcategory">Create New Category</a>
+    <br/></br>
+    <table border="1" cellpadding="10">
+    <thread>
+    <tr>
+    <th>Category ID</th>
+    <th>Category Name</th>
+    <th>Description</th>
+    </tr>
+    </thread>
+    <tbody>
+    <tr th:each="mCategory : ${listCategorys}">
+                <td th:text="${mCategory.categoryId}">category ID</td>
+                <td th:text="${mCategory.categoryName}">category Name</td>
+                <td th:text="${mCategory.description}">description</td>
+                <td>
+                    <a th:href="@{'/editCategory/' + ${mCategory.categoryId}}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/deleteCategory/' + ${mCategory.categoryId}}">Delete</a>
+                </td>
+    
+    </tbody>
+    </table>
+    </div>
+</body>
+</html>
