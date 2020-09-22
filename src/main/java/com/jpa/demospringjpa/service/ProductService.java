@@ -33,4 +33,8 @@ public class ProductService {
     public void delete(long id) {
         repo.deleteById(id);
     }
+
+    public List<Product> search (String name) {
+    	return repo.search(name);
+    }
 }
