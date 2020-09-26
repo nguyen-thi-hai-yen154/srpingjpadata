@@ -8,26 +8,26 @@
 <body>
 <div align="center">
     <nav>
-    	<a href="/springjpa/">User List</a>/
+    	<a href="/springjpa/list_product">User List</a>/
     	<a href="/springjpa/list_category"> Catagory List</a>
     </nav>
     <h1>Users List</h1>
     <a href="/springjpa/newtuser">Create New User</a>
     <br/><br/>
-    
+
     <!--  Search User -->
     <div class = "search">
-     <form action="#" th:action = "@{/searchuser}" th:object = "${userform}" method="post"> 
+     <form action="#" th:action = "@{/searchuser}" th:object = "${userform}" method="post">
       <table boder = "0" cellpadding="10" >
       	<tr>
       		<td> User Search: </td>
-      		<td> <input type="text" th:field = "*{userName}" placeholder="Search ... "/> </td> 
+      		<td> <input type="text" th:field = "*{userName}" placeholder="Search ... "/> </td>
       		<td colspan="2"> <button type = "submit"> Search </button> </td>
       	</tr>
       </table>
      </form>
     </div>
-    
+
     <table border="1" cellpadding="10">
         <thead>
             <tr>
