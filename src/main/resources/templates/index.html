@@ -2,58 +2,83 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8"/>
-<title>Product Manager</title>
+	<meta charset="utf-8"/>
+	<title>Product Manager</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div align="center">
-    <nav>
-    	<a href="/springjpa/tuser">User List</a>/
-    	<a href="/springjpa/list_category">　Catagory List</a>
-    </nav>
-    <h1>Product List</h1>
-    <a href="/springjpa/new">Create New Product</a>
-    <br/><br/>
-
-    <!-- Search Form -->
-    <div class="search">
-     <form action="#" th:action="@{/search}" th:object="${productform}" method="post">
-     	<table border="0" cellpadding="10">
-			<tr>
-				<td>Product Name:</td>
-  			    <td><input type="text" th:field="*{name}"  /></td>
-	 			<td colspan="2"><button type="submit">Search</button> </td>
-	 		</tr>
-	 	</table>
-     </form>
+<div class="container">
+	<div class="nav">
+    	<ul>
+    		<li><a href="/springjpa/tuser">List User</a></li>
+    		<li><a href="/springjpa/list_category">List Category</a></li>
+    	</ul>
     </div>
 
-    <table border="1" cellpadding="10">
-        <thead>
-            <tr>
-                <th>Product ID</th>
-                <th>Name</th>
-                <th>Brand</th>
-                <th>Made In</th>
-                <th>Price</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="product : ${listProducts}">
-                <td th:text="${product.id}">Product ID</td>
-                <td th:text="${product.name}">Name</td>
-                <td th:text="${product.brand}">Brand</td>
-                <td th:text="${product.madein}">Made in</td>
-                <td th:text="${product.price}">Price</td>
-                <td>
-                    <a th:href="@{'/edit/' + ${product.id}}">Edit</a>
-                    &nbsp;&nbsp;&nbsp;
-                    <a th:href="@{'/delete/' + ${product.id}}">Delete</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+
+ 	<div class="panel-group" style="margin-top:40px">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <span>PRODUCT LIST</span>
+            </div>
+            <div class="panel-body">
+
+				<!-- BEGIN center -->
+				<div align="center">
+				    <h1>Product List</h1>
+				    <a href="/springjpa/new">Create New Product</a>
+				    <br/><br/>
+
+				    <!-- Search Form -->
+				    <div class="search">
+				     <form action="#" th:action="@{/search}" th:object="${productform}" method="post">
+				     	<table border="0" cellpadding="10">
+							<tr>
+								<td>Product Name:</td>
+				  			    <td><input type="text" th:field="*{name}"  /></td>
+					 			<td colspan="2"><button type="submit">Search</button> </td>
+					 		</tr>
+					 	</table>
+				     </form>
+				    </div>
+
+				    <table border="1" cellpadding="10">
+				        <thead>
+				            <tr>
+				                <th>Product ID</th>
+				                <th>Name</th>
+				                <th>Brand</th>
+				                <th>Made In</th>
+				                <th>Price</th>
+				                <th>Actions</th>
+				            </tr>
+				        </thead>
+				        <tbody>
+				            <tr th:each="product : ${listProducts}">
+				                <td th:text="${product.id}">Product ID</td>
+				                <td th:text="${product.name}">Name</td>
+				                <td th:text="${product.brand}">Brand</td>
+				                <td th:text="${product.madein}">Made in</td>
+				                <td th:text="${product.price}">Price</td>
+				                <td>
+				                    <a th:href="@{'/edit/' + ${product.id}}">Edit</a>
+				                    &nbsp;&nbsp;&nbsp;
+				                    <a th:href="@{'/delete/' + ${product.id}}">Delete</a>
+				                </td>
+				            </tr>
+				        </tbody>
+				    </table>
+				</div>
+				<!-- END center -->
+
+            </div>
+
+        </div>
+    </div>
+
 </div>
 </body>
 </html>

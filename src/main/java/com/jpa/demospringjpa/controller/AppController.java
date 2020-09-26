@@ -51,7 +51,7 @@ public class AppController {
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String saveProduct(@ModelAttribute("product") Product product) {
 		service.save(product);
-		return "redirect:/";
+		return "redirect:/list_product";
 	}
 
 	@RequestMapping("/edit/{id}")
@@ -66,7 +66,7 @@ public class AppController {
 	@RequestMapping("/delete/{id}")
 	public String deleteProduct(@PathVariable(name = "id") int id) {
 		service.delete(id);
-		return "redirect:/";
+		return "redirect:/list_product";
 	}
 
 	@RequestMapping("/search")

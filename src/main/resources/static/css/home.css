@@ -3,3 +3,22 @@
     font-size: 22px;
     color: #004080;
 }
+
+.nav{
+	margin-top: 10px;
+}
+
+li{
+	background: #bbf3d9;
+    color: white;
+    padding: 3px 5px;
+    margin-bottom: 5px;
+}
+
+.search{
+	margin-bottom: 20px;
+}
+
+td, th {
+    padding: 10px;
+}
