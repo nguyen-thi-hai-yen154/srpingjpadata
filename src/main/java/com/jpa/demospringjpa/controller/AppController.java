@@ -27,7 +27,7 @@ public class AppController {
 
 	private Product product;
 
-	@RequestMapping("/")
+	@RequestMapping("list_product")
 	public String viewHomePage(Model model) {
 		List<Product> listProducts = service.listAll();
 		model.addAttribute("listProducts", listProducts);
