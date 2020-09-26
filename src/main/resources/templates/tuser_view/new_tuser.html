@@ -3,11 +3,11 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8" />
-<title>Create New Product</title>
+<title>Create New User</title>
 </head>
 <body>
 	<div align="center">
-		<h1>Create New Product</h1>
+		<h1>Create New User</h1>
 		<br />
 		<form action="#" th:action="@{/savetuser}" th:object="${tUser}" method="post">
 			<table border="0" cellpadding="10">
@@ -23,21 +23,39 @@
 						<input type="text" th:field="*{userName}"/>
 					</td>
 				</tr>
-				<tr>
-					<td>User Active:</td>
-					<td><input type="text" th:field="*{userActive}"/></td>
+<!-- 				<tr> -->
+<!-- 					<td>User Active:</td> -->
+<!-- 					<td><input type="text" th:field="*{userActive}"/></td> -->
+<!-- 				</tr> -->
+				<tr><td><label>User Active: </label></td>
+					<td>
+					  <input type="radio" value= "1" th:field = "*{userActive}"/>
+					  <label for="male">Active</label>
+					  <input type="radio" value= "0" th:field = "*{userActive}"/>
+					  <label for="male">Not Active</label>
+					</td>
 				</tr>
 				<tr>
 					<td>User Email:</td>
-					<td><input type="text" th:field="*{userEmail}"/></td>
+					<td><input type="text" th:field="*{userEmail}" maxlength="20" placeholder="Enter a user mail"/></td>
 				</tr>
 				<tr>
 					<td>User Birthday:</td>
 					<td><input type="date" th:field="*{userBirthday}"/></td>
 				</tr>
-				<tr>
-				<td>User Gender:</td>
-					<td><input type="text" th:field="*{usergender}"/></td>
+<!-- 				<tr> -->
+<!-- 				<td>User Gender:</td> -->
+<!-- 					<td><input type="text" th:field="*{usergender}"/></td> -->
+<!-- 				</tr> -->
+				<tr><td><label for="id">User Gender</label></td>
+				
+					<td><input type="radio" id="male" name="gender" value="male" th:field="*{usergender}"/>
+					   <label for="male">Male</label>
+					   <input type="radio" id="female" name="gender" value="female" th:field="*{usergender}"/>
+					   <label for="female">Female</label>
+					   <input type="radio" id="other" name="gender" value="other" th:field="*{usergender}"/>
+					   <label for="other">Other</label><br> 
+					</td>
 				</tr>
 				<tr>
 				<td>User Address:</td>
