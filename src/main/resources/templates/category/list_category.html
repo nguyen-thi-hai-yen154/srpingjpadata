@@ -3,40 +3,63 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8"/>
-<title>List Category</title>
-
+	<meta charset="utf-8"/>
+	<title>List Category</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div align="center">
-    <nav>
-    	<a href="/springjpa/list_product">Product List</a>
-    	<a href="/springjpa/tuser">User List</a>/
-    </nav>
-    <h1>Category List</h1>
-     <a href="/springjpa/add_newcategory">Create New Category</a>
-    <br/></br>
-    <table border="1" cellpadding="10">
-    <thread>
-    <tr>
-    <th>Category ID</th>
-    <th>Category Name</th>
-    <th>Description</th>
-    </tr>
-    </thread>
-    <tbody>
-    <tr th:each="mCategory : ${listCategorys}">
-                <td th:text="${mCategory.categoryId}">category ID</td>
-                <td th:text="${mCategory.categoryName}">category Name</td>
-                <td th:text="${mCategory.description}">description</td>
-                <td>
-                    <a th:href="@{'/editCategory/' + ${mCategory.categoryId}}">Edit</a>
-                    &nbsp;&nbsp;&nbsp;
-                    <a th:href="@{'/deleteCategory/' + ${mCategory.categoryId}}">Delete</a>
-                </td>
-
-    </tbody>
-    </table>
+<div class="container">
+	<div class="nav">
+    	<ul>
+    		<li><a href="/springjpa/list_product">Product List</a></li>
+    		<li><a href="/springjpa/tuser">List User</a></li>
+    	</ul>
     </div>
+
+    <div class="panel-group" style="margin-top:40px">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <span>Category List</span>
+            </div>
+            <div class="panel-body">
+
+				<!-- BEGIN center -->
+				<div align="center">
+				    <a href="/springjpa/new">Create New Product</a>
+				    <br/><br/>
+					<h1>Category List</h1>
+				    <a href="/springjpa/add_newcategory">Create New Category</a>
+				    <br/></br>
+				    <table border="1" cellpadding="10">
+					    <thread>
+						    <tr>
+							    <th>Category ID</th>
+							    <th>Category Name</th>
+							    <th>Description</th>
+							    <th></th>
+						    </tr>
+					    </thread>
+					    <tbody>
+					    <tr th:each="mCategory : ${listCategorys}">
+			                <td th:text="${mCategory.categoryId}">category ID</td>
+			                <td th:text="${mCategory.categoryName}">category Name</td>
+			                <td th:text="${mCategory.description}">description</td>
+			                <td>
+			                    <a th:href="@{'/editCategory/' + ${mCategory.categoryId}}">Edit</a>
+			                    &nbsp;&nbsp;&nbsp;
+			                    <a th:href="@{'/deleteCategory/' + ${mCategory.categoryId}}">Delete</a>
+			                </td>
+						</tr>
+					    </tbody>
+				    </table>
+				</div>
+	         </div>
+		  </div>
+	</div>
+
+</div>
 </body>
 </html>

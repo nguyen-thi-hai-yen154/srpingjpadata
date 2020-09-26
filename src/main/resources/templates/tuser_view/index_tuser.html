@@ -2,61 +2,78 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8"/>
-<title>Users Manager</title>
+	<meta charset="UTF-8"/>
+	<title>Users Manager</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div align="center">
-    <nav>
-    	<a href="/springjpa/list_product">Product List</a>/
-    	<a href="/springjpa/list_category"> Catagory List</a>
-    </nav>
-    <h1>Users List</h1>
-    <a href="/springjpa/newtuser">Create New User</a>
-    <br/><br/>
-
-    <!--  Search User -->
-    <div class = "search">
-     <form action="#" th:action = "@{/searchuser}" th:object = "${userform}" method="post">
-      <table boder = "0" cellpadding="10" >
-      	<tr>
-      		<td> User Search: </td>
-      		<td> <input type="text" th:field = "*{userName}" placeholder="Search ... "/> </td>
-      		<td colspan="2"> <button type = "submit"> Search </button> </td>
-      	</tr>
-      </table>
-     </form>
+<div class="container">
+	<div class="nav">
+    	<ul>
+    		<li><a href="/springjpa/list_product">Product List</a></li>
+    		<li><a href="/springjpa/list_category">Catagory List</li>
+    	</ul>
     </div>
+	<div class="panel-group" style="margin-top:40px">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <span>Users List</span>
+            </div>
+            <div class="panel-body">
+            	<div align="center">
+				    <a href="/springjpa/newtuser">Create New User</a>
+				    <br/><br/>
 
-    <table border="1" cellpadding="10">
-        <thead>
-            <tr>
-                <th>User ID</th>
-                <th>User Name</th>
-                <th>User Active</th>
-                <th>User Email</th>
-                <th>User Birthday</th>
-                <th>User Gender</th>
-                <th>User Address</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="listtuser : ${listTUser}">
-                <td th:text="${listtuser.userID}">User ID</td>
-                <td th:text="${listtuser.userName}">User Name</td>
-                <td th:text="${listtuser.userActive}">User Active</td>
-                <td th:text="${listtuser.userEmail}">User Email</td>
-                <td th:text="${listtuser.userBirthday}">User Birthday</td>
-                <td th:text="${listtuser.usergender}">User Gender</td>
-                <td th:text="${listtuser.userAddress}">User Address</td>
-                <td>
-                    <a th:href="@{'/edittuser/' + ${listtuser.userID}}">Edit User</a>
-                    &nbsp;&nbsp;&nbsp;
-                    <a th:href="@{'/deletetuser/' + ${listtuser.userID}}">Delete User</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+				    <!--  Search User -->
+				    <div class = "search">
+				     <form action="#" th:action = "@{/searchuser}" th:object = "${userform}" method="post">
+				      <table boder = "0" cellpadding="10" >
+				      	<tr>
+				      		<td> User Search: </td>
+				      		<td> <input type="text" th:field = "*{userName}" placeholder="Search ... "/> </td>
+				      		<td colspan="2"> <button type = "submit"> Search </button> </td>
+				      	</tr>
+				      </table>
+				     </form>
+				    </div>
+
+				    <table border="1" cellpadding="10">
+				        <thead>
+				            <tr>
+				                <th>User ID</th>
+				                <th>User Name</th>
+				                <th>User Active</th>
+				                <th>User Email</th>
+				                <th>User Birthday</th>
+				                <th>User Gender</th>
+				                <th>User Address</th>
+				                <th></th>
+				            </tr>
+				        </thead>
+				        <tbody>
+				            <tr th:each="listtuser : ${listTUser}">
+				                <td th:text="${listtuser.userID}">User ID</td>
+				                <td th:text="${listtuser.userName}">User Name</td>
+				                <td th:text="${listtuser.userActive}">User Active</td>
+				                <td th:text="${listtuser.userEmail}">User Email</td>
+				                <td th:text="${listtuser.userBirthday}">User Birthday</td>
+				                <td th:text="${listtuser.usergender}">User Gender</td>
+				                <td th:text="${listtuser.userAddress}">User Address</td>
+				                <td>
+				                    <a th:href="@{'/edittuser/' + ${listtuser.userID}}">Edit User</a>
+				                    &nbsp;&nbsp;&nbsp;
+				                    <a th:href="@{'/deletetuser/' + ${listtuser.userID}}">Delete User</a>
+				                </td>
+				            </tr>
+				        </tbody>
+				    </table>
+				</div>
+            </div>
+        </div>
+     </div>
 </div>
 </body>
 </html>
