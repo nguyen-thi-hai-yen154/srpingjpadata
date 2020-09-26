@@ -24,7 +24,7 @@
             </div>
             <div class="panel-body">
             	<div align="center">
-				    <a href="/springjpa/newtuser">Create New User</a>
+				    <a class="btn btn-md btn-warning btn-block" href="/springjpa/newtuser">Create New User</a>
 				    <br/><br/>
 
 				    <!--  Search User -->
@@ -63,9 +63,9 @@
 				                <td th:text="${listtuser.usergender}">User Gender</td>
 				                <td th:text="${listtuser.userAddress}">User Address</td>
 				                <td>
-				                    <a th:href="@{'/edittuser/' + ${listtuser.userID}}">Edit User</a>
+				                    <a class="btn btn-primary btn-button" th:href="@{'/edittuser/' + ${listtuser.userID}}">Edit User</a>
 				                    &nbsp;&nbsp;&nbsp;
-				                    <a th:href="@{'/deletetuser/' + ${listtuser.userID}}">Delete User</a>
+				                    <a class="btn btn-danger btn-button" th:href="@{'/deletetuser/' + ${listtuser.userID}}">Delete User</a>
 				                </td>
 				            </tr>
 				        </tbody>

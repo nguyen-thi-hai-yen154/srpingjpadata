@@ -27,7 +27,7 @@
             <div class="panel-body">
 				<!-- BEGIN center -->
 				<div align="center">
-				    <a href="/springjpa/add_newcategory">Create New Category</a>
+				    <a class="btn btn-md btn-warning btn-block" href="/springjpa/add_newcategory">Create New Category</a>
 				    <br/></br>
 				    <table border="1" cellpadding="10">
 					    <thread>
@@ -44,9 +44,9 @@
 			                <td th:text="${mCategory.categoryName}">category Name</td>
 			                <td th:text="${mCategory.description}">description</td>
 			                <td>
-			                    <a th:href="@{'/editCategory/' + ${mCategory.categoryId}}">Edit</a>
+			                    <a class="btn btn-primary btn-button" th:href="@{'/editCategory/' + ${mCategory.categoryId}}">Edit</a>
 			                    &nbsp;&nbsp;&nbsp;
-			                    <a th:href="@{'/deleteCategory/' + ${mCategory.categoryId}}">Delete</a>
+			                    <a class="btn btn-danger btn-button" th:href="@{'/deleteCategory/' + ${mCategory.categoryId}}">Delete</a>
 			                </td>
 						</tr>
 					    </tbody>

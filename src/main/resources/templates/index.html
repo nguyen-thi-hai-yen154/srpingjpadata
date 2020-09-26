@@ -28,7 +28,7 @@
 
 				<!-- BEGIN center -->
 				<div align="center">
-				    <a href="/springjpa/new">Create New Product</a>
+					<a class="btn btn-md btn-warning btn-block" href="/springjpa/new">Create New Product</a>
 				    <br/><br/>
 
 				    <!-- Search Form -->
@@ -63,9 +63,9 @@
 				                <td th:text="${product.madein}">Made in</td>
 				                <td th:text="${product.price}">Price</td>
 				                <td>
-				                    <a th:href="@{'/edit/' + ${product.id}}">Edit</a>
+				                    <a class="btn btn-primary btn-button" th:href="@{'/edit/' + ${product.id}}">Edit</a>
 				                    &nbsp;&nbsp;&nbsp;
-				                    <a th:href="@{'/delete/' + ${product.id}}">Delete</a>
+				                    <a class="btn btn-danger btn-button" th:href="@{'/delete/' + ${product.id}}">Delete</a>
 				                </td>
 				            </tr>
 				        </tbody>
