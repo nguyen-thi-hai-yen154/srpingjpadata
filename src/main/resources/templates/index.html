@@ -11,6 +11,11 @@
 </head>
 <body>
 <div class="container">
+ 	<form th:action="@{/logout}" method="get">
+        <button class="btn btn-md btn-danger btn-block" name="registration"
+                type="Submit">Logout
+        </button>
+    </form>
 	<div class="nav">
     	<ul>
     		<li><a href="/springjpa/tuser">List User</a></li>
